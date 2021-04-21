@@ -41,7 +41,7 @@ def load_data(data_path='../data/100s', filename='nav01_train', steps_per_episod
 
     # reshape data
     for key in data.keys():
-        # 'vel': (100, 1000, 3), 'rgbd': (100, 1000, 32, 32, 4), 'pose': (100, 1000, 3)
+        # 'vel': (1000, 100, 3), 'rgbd': (1000, 100, 32, 32, 4), 'pose': (1000, 100, 3)
         if num_episodes is not None:
             data[key] = data[key][:num_episodes*steps_per_episode]
         data[key] = np.reshape(data[key], [-1, steps_per_episode] + list(data[key].shape[1:])).astype('float32')
